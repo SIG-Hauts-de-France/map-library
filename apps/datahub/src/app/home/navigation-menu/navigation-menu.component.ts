@@ -32,7 +32,7 @@ export class NavigationMenuComponent {
       link: `${ROUTER_ROUTE_SEARCH}`,
       label: 'datahub.header.datasets',
     },
-    {
+    {/*
       children: [
         {
           link: 'https://sig.hautsdefrance.fr/ext/opendata/web/presentation.html',
@@ -55,7 +55,8 @@ export class NavigationMenuComponent {
           label:'datahub.header.datahubRegional',
         }
       ],
-      label: 'datahub.header.approach',
+      */
+      label: '',
     }
   ]
 

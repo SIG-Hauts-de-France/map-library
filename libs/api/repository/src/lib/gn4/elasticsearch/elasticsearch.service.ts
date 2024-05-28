@@ -246,12 +246,16 @@ export class ElasticsearchService {
     const must_not = {
       ...this.queryFilterOnValues('resourceType', [
         'service',
-        'map',
+        /*'map',
         'map/static',
-        'mapDigital',
+        'mapDigital',*/
       ]),
     }
-    const should = [] as Record<string, unknown>[]
+    const should = {
+      ...this.queryFilterOnValues('resourceType', [
+        'map', 'map/static', 'mapDigital'
+      ]),
+    } as Record<string, unknown>[]
     const filter = [this.queryFilterOnValues('isTemplate', 'n')] as Record<
       string,
       unknown
@@ -342,6 +346,9 @@ export class ElasticsearchService {
       query: {
         bool: {
           must: [
+            this.queryFilterOnValues('resourceType', [
+              'map', 'map/static', 'mapDigital'
+            ]),
             this.queryFilterOnValues('isTemplate', 'n'),
             {
               multi_match: {
@@ -359,9 +366,9 @@ export class ElasticsearchService {
           must_not: {
             ...this.queryFilterOnValues('resourceType', [
               'service',
-              'map',
+              /*'map',
               'map/static',
-              'mapDigital',
+              'mapDigital',*/
             ]),
           },
         },
