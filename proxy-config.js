@@ -1,6 +1,6 @@
 module.exports = {
   '/geonetwork': {
-    target: 'https://opendata.hautsdefrance.fr',
+    target: 'https://hdf-dev.geofit.fr/',
     secure: true,
     logLevel: 'debug',
     changeOrigin: true,
